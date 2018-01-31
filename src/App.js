@@ -10,15 +10,12 @@ class Hello extends Component {
 
 class Text extends Component {
   render() {
-
-    const textoSegunBoolean = this.props.boolean ? 'Cierto' : 'Falso'
+    const mappedNumbers = this.props.arrayOfNumbers.map(n => n*2)
 
     return (
       <div>
-        <p>{ this.props.text }</p>
-        <p>{ this.props.number }</p>
-        <p>{ JSON.stringify(this.props.boolean) }</p>
-        <p>{ textoSegunBoolean }</p>
+        <p>{ mappedNumbers.join(', ') }</p>
+        <p>{ this.props.objectWIthInfo.key }</p>
       </div>
     )
   }
@@ -32,11 +29,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <Hello title='Hello from React' />
         </header>
-(// Ordenar props alfabéticamente y en separadas líneas )
         <Text
-          boolean
-          number={ 2 }
-          text='Texto string'
+          arrayOfNumbers={[2,5,6,10]}
+          objectWIthInfo={{ key:'value1', key2:'value2' }}
         />
       </div>
     );
