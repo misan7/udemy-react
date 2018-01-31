@@ -2,20 +2,25 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-// Tres maneras de crear un Componente:
-
-// 1a-
-// function Hello (props) {
-//   return <h1>{ props.title }</h1>
-// }
-
-// 2a-
-// const Hello = (props) => <h1>{ props.title }</h1>
-
-// 3a-
 class Hello extends Component {
   render() {
     return <h1>{ this.props.title }</h1>
+  }
+}
+
+class Text extends Component {
+  render() {
+
+    const textoSegunBoolean = this.props.boolean ? 'Cierto' : 'Falso'
+
+    return (
+      <div>
+        <p>{ this.props.text }</p>
+        <p>{ this.props.number }</p>
+        <p>{ JSON.stringify(this.props.boolean) }</p>
+        <p>{ textoSegunBoolean }</p>
+      </div>
+    )
   }
 }
 
@@ -27,8 +32,12 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <Hello title='Hello from React' />
         </header>
-        <p className="App-intro">Esto es un párrafo y <strong>esto es negrita</strong></p>
-        <p>Esto es otro párrafo</p>
+(// Ordenar props alfabéticamente y en separadas líneas )
+        <Text
+          boolean
+          number={ 2 }
+          text='Texto string'
+        />
       </div>
     );
   }
