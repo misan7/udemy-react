@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 
-class Title extends Component {
+class Contador extends Component {
+  constructor() {
+    super()
+    this.state = { contador: 1 }
+  }
+
   render() {
-    return <h1>{this.props.text}</h1>
+    return (
+      <span>{this.state.contador}</span>
+    )
   }
 }
-
-Title.defaultProps = {
-  text: 'Esto es un título por defecto'
-}
-
 class App extends Component {
   render() {
-    return <Title/>
+    return (
+      <div className="App">
+        <p>Mi primer componente con state</p>
+        <Contador/>
+      </div>
+    )
+
   }
 }
 
