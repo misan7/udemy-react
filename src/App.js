@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 // Información inmutable, solo actualizar con setState y es Asíncrono
 class Contador extends Component {
-  constructor() {
-    super()
-    this.state = { contador: 1 }
+  constructor(props) {
+    super(props)
+    console.log(this.props.contadorInicial)
+    this.state = { contador: this.props.contadorInicial }
     setInterval(() => {
       this.setState({ contador: this.state.contador + 1})
     }, 1000)
@@ -17,6 +18,10 @@ class Contador extends Component {
   }
 }
 
+Contador.defaultProps = {
+  contadorInicial:0
+}
+
 class ContadorNumero extends Component {
   render() {
     return <span>{this.props.numero}</span>
@@ -27,8 +32,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>Mi primer componente con state</p>
-        <Contador/>
+        <p>Propagando state en nuestros componentes</p>
+        <Contador contadorInicial={100}/>
       </div>
     )
 
