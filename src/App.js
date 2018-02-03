@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
+// Información inmutable, solo actualizar con setState y es Asíncrono
 class Contador extends Component {
   constructor() {
     super()
     this.state = { contador: 1 }
+    setInterval(() => {
+      this.setState({ contador: this.state.contador + 1})
+    }, 1000)
   }
 
   render() {
@@ -12,6 +16,7 @@ class Contador extends Component {
     )
   }
 }
+
 class App extends Component {
   render() {
     return (
