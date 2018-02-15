@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 
 class App extends Component {
-  render() {
+  handleClick(e){
+    console.log(e)
+    console.log(e.nativeEvent)
+    alert('Me has clicado :O')
+  }
 
+  render() {
     return (
       <div className="App">
         <h4>Eventos</h4>
-        <button onClick={() => alert('Me has clicado :O')}>Haz click en mí!</button>
+        <button onClick={this.handleClick}>Haz click en mí!</button>
       </div>
     )
   }
