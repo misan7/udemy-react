@@ -18,10 +18,19 @@ class Render extends Component {
     //     console.log('render')
     //     return <HellRender />
     // }
+    // render () {
+    //     console.log('render')
+    //     // Si el contenido de 'mensaje' es 'mensaje inicial' se renderizará el contenido y sino el contenido no se renderizará (null)
+    //     return this.state.mensaje === 'mensaje inicial' ? 'Contenido mostrado!' : null
+    // }
     render () {
         console.log('render')
-        // Si el contenido de 'mensaje' es 'mensaje inicial' se renderizará el contenido y sino el contenido no se renderizará (null)
-        return this.state.mensaje === 'mensaje inicial' ? 'Contenido mostrado!' : null
+        return [
+        <h1 key='A'>Primer Fragmento</h1>,
+        <HellRender key='B' />,
+        <HellRender key='C' />,
+        <h1 key='D'>Cuarto Fragmento</h1>
+        ]
     }
 }
 
