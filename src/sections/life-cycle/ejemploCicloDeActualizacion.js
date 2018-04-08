@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
 
 const ANIMAL_IMAGES = {
@@ -9,7 +9,7 @@ const ANIMAL_IMAGES = {
 
 const ANIMALS = Object.keys(ANIMAL_IMAGES);
 
-class AnimalImage extends Component {
+class AnimalImage extends PureComponent {
   state = { src: ANIMAL_IMAGES[this.props.animal] };
 
   componentWillReceiveProps(nextProps) {
@@ -18,14 +18,8 @@ class AnimalImage extends Component {
     this.setState({ src: ANIMAL_IMAGES[nextProps.animal] });
   }
 
-  shouldComponentUpdate(nextProps) {
-      console.log("2. shouldComponentUpdate")
-      console.log("anterior:", this.props.animal)
-      console.log("actual:", nextProps.animal)
-      // Devuelve un booleano
-      // Si el método no existe, devuelve por defecto 'true'
-      return this.props.animal !== nextProps.animal
-  }
+  // PureComponent se encarga de realizar el ciclo de actualización
+  // Evita el renderizado porque detecta que las props son las mismas que teníamos
 
   render() {
     console.log("---> Render!");
